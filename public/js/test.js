@@ -1,4 +1,4 @@
-console.log("client side JS Code");
+//console.log("client side JS Code");
 
 /*
 
