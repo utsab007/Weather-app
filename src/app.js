@@ -8,6 +8,8 @@ log = console.log;
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 // app.com
 //app.com/help
 //app.com/about
@@ -113,6 +115,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  log("3000 port is running");
+app.listen(port, () => {
+  log(port + " port is running");
 });
