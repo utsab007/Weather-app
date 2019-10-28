@@ -29,6 +29,7 @@ const search = document.querySelector("input");
 const msg1 = document.querySelector("#msg1");
 const msg2 = document.querySelector("#msg2");
 const msg3 = document.querySelector("#msg3");
+const temp = document.querySelector("#temp");
 
 weatherForm.addEventListener("submit", e => {
   e.preventDefault();
@@ -36,16 +37,17 @@ weatherForm.addEventListener("submit", e => {
 
   msg1.textContent = "Loading....";
   msg2.textContent = "";
-  msg3.textContent = "Temperature in *C :";
+  msg3.textContent = "";
 
   fetch("/weather?address=" + location).then(res => {
     res.json().then(data => {
       if (data.error) {
         msg1.textContent = data.error;
       } else {
+        temp.style.visibility = "visible";
         msg1.textContent = data.location;
         msg2.textContent = data.forcast.Summary;
-        msg3.textContent += data.forcast.temperature;
+        msg3.textContent = data.forcast.temperature;
         console.log(data.forcast);
       }
     });
