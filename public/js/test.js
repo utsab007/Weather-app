@@ -35,6 +35,7 @@ weatherForm.addEventListener("submit", e => {
 
   msg1.textContent = "Loading....";
   msg2.textContent = "";
+  msg3.textContent = "Temperature in *C :";
 
   fetch("/weather?address=" + location).then(res => {
     res.json().then(data => {
@@ -43,6 +44,7 @@ weatherForm.addEventListener("submit", e => {
       } else {
         msg1.textContent = data.location;
         msg2.textContent = data.forcast.Summary;
+        msg3.textContent += data.forcast.temperature;
         console.log(data.forcast);
       }
     });
